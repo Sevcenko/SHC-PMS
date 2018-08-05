@@ -1,0 +1,59 @@
+<h1>Patients</h1>
+<style>
+.aaa div{
+	display:inline;
+	margin-left: 10px;
+}
+</style>
+<div class="row aaa">
+	<div>
+	  	<%= link_to "New Patient", new_patient_path(@patient), :class => 'btn btn-default' %>
+	</div>
+	<div class="dropdown">
+	    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Find Patient
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	    	<li><a href="#">By Name</a></li>
+	    	<li><a href="#">By DOB</a></li>
+	    	<li><a href="#">By Surname</a></li>
+	    </ul>
+	</div>
+
+	<form class="navbar-form" role="search">
+		<div class="custom-search-input">
+			<div class="form-group">
+				<%= form_tag(patients_path, method: "get", id: "search-form") do %>
+					<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+					<%= button_tag(class: "btn btn-info btn-lg", type: "submit") do %>
+						<i class="glyphicon glyphicon-search"></i>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</form>
+
+</div>
+
+<% @patients.each do |patient| %>
+	<div class="well">
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Surname</th>
+		      <th scope="col">DOB</th>
+		      <th scope="col">Email</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td><%= patient.name %></td>
+		      <td><%= patient.surname %></td>
+		      <td><%= patient.birthday %></td>
+		      <td><%= patient.email %></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<%= link_to "Read More", patient_path(patient), :class => 'btn btn-default' %>
+	</div>
+<% end %>

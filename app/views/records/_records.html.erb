@@ -1,0 +1,15 @@
+<h3>Patient Medical Records</h3>
+<% @patient.records.each do |record| %>
+	<div class="well">
+	
+		<p><strong>Created:</strong> <%= record.created_at.strftime("%d %b %Y %H:%M:%S") %></p>
+		<p><strong>Doctor:</strong> <%= record.doctor %></p>
+		<p><strong>Reason:</strong> <%= record.reason %></p>
+		<p><strong>Diagnosis:</strong> <%= record.diagnosis %></p>
+		<p><strong>Bandymas:</strong> <%= record.patient_id %></p>
+		<%= link_to [record.patient, record], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', title: "Delete" do%>
+
+			<i class="glyphicon glyphicon glyphicon-trash"></i>
+		<% end %>
+	</div>
+<% end %>

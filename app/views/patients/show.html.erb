@@ -1,0 +1,107 @@
+<style>
+	.table-borderless > tbody > tr > td,
+	.table-borderless > tbody > tr > th,
+	.table-borderless > tfoot > tr > td,
+	.table-borderless > tfoot > tr > th,
+	.table-borderless > thead > tr > td,
+	.table-borderless > thead > tr > th {
+	    border: none;
+	}
+</style>
+<div class="well">
+	<%= link_to "Medical Records", patient_path(@patient), :class => 'btn btn-default', id: 'all_record' %>
+	<%= link_to "New Record", patient_path(@patient), :class => 'btn btn-default', id: 'new_record' %>
+
+	<%= link_to "Appointments", patient_path(@patient), :class => 'btn btn-default', id: 'all_appointment' %>
+	<%= link_to "New Appointment", patient_path(@patient), :class => 'btn btn-default', id: 'new_appointment' %>
+
+	<%= link_to "Edit Patient", edit_patient_path(@patient), :class => 'btn btn-default' %>
+	<%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger'%>
+</div>
+<h1>Patient Details</h1>
+<hr>
+<div class="container">
+	<div class="col-md-6">
+		<table class="table table-borderless">
+			<tr>
+				<td><strong>Name:</strong></td>
+				<td><%= @patient.name %></td>
+			</tr>
+			<tr>
+				<td><strong>Surname:</strong></td>
+				<td><%= @patient.surname %></td>
+			</tr>
+			<tr>
+				<td><strong>DOB:</strong></td>
+				<td><%= @patient.try(:birthday).try(:strftime, '%e %B %Y') %></td>
+			</tr>
+			<tr>
+				<td><strong>Clinic:</strong></td>
+				<td><%= @patient.clinic %></td>
+			</tr>
+			<tr>
+				<td><strong>Email:</strong></td>
+				<td><%= @patient.email %></td>
+			</tr>
+			<tr>
+				<td><strong>Phone Number:</strong></td>
+				<td><%= @patient.phoneNumber %></td>
+			</tr>
+			<tr>
+				<td><strong>Address:</strong></td>
+				<td><%= @patient.addressNumber %> <%= @patient.address_street %></td>
+			</tr>
+			<tr>
+				<td><strong>City:</strong></td>
+				<td><%= @patient.city %></td>
+			</tr>
+			<tr>
+				<td><strong>Doctor ID:</strong></td>
+				<td><%= @patient.doctor_id %></td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-md-6">
+		
+	</div>
+</div>
+
+<div id="records" style="display:none"><%= render 'records/records' %></div>
+<div id="form" style="display:none"><%= render 'records/form' %></div>
+
+<div id="aRecords" style="display:none"><%= render 'appointments/appointments' %></div>
+<div id="aForm" style="display:none"><%= render 'appointments/form' %></div>
+
+<script type="text/javascript">
+$(function() {
+	$('#all_record').click(function(event){
+    	event.preventDefault();
+    	$('#records').show();
+    	$('#form').hide();
+    	$('#aRecords').hide();
+    	$('#aForm').hide();
+  	});
+  	$('#new_record').click(function(event){
+    	event.preventDefault();
+    	$('#form').show();
+    	$('#records').hide();
+    	$('#aRecords').hide();
+    	$('#aForm').hide();
+  	});
+  	$('#all_appointment').click(function(event){
+    	event.preventDefault();
+    	$('#aRecords').show();
+    	$('#form').hide();
+    	$('#records').hide();
+    	$('#aForm').hide();
+  	});
+  	$('#new_appointment').click(function(event){
+    	event.preventDefault();
+    	$('#aForm').show();
+    	$('#form').hide();
+    	$('#records').hide();
+    	$('#aRecords').hide();
+  	});
+
+});   
+</script>

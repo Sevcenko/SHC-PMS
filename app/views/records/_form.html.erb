@@ -1,0 +1,21 @@
+<h3>Add Record</h3>
+<%= form_for([@patient, @patient.records.build]) do |f| %>
+	<p>
+		<%= f.label :doctor %><br>
+		<%= f.text_field(:doctor, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :reason %><br>
+		<%= f.text_area(:reason, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :diagnosis %><br>
+		<%= f.text_area(:diagnosis, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-default'}) %>
+	</p>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Doctors</h1>
+
+<div>
+	<%= link_to "New Doctor", new_doctor_path(@doctor), :class => 'btn btn-default' %>
+</div>
+
+<% @doctors.each do |doctor| %>
+	<div class="well">
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Surname</th>
+		      <th scope="col">DOB</th>
+		      <th scope="col">Email</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td><%= doctor.name %></td>
+		      <td><%= doctor.surname %></td>
+		      <td><%= doctor.birthday %></td>
+		      <td><%= doctor.email %></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<%= link_to "Read More", doctor_path(doctor), :class => 'btn btn-default' %>
+		<%= link_to "New Patient", doctor_path(doctor), :class => 'btn btn-default' %>
+	</div>
+<% end %>

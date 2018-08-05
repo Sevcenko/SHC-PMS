@@ -1,0 +1,46 @@
+<h1>Doctor Details</h1>
+<hr>
+<%= link_to "Edit Doctor", edit_doctor_path(@doctor), :class => 'btn btn-default' %>
+	<%= link_to "Delete Doctor", doctor_path(@doctor), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger'%>
+<hr>
+<div class="container">
+	<div class="col-md-6">
+		<table class="table table-borderless">
+			<tr>
+				<td><strong>Name:</strong></td>
+				<td><%= @doctor.name %></td>
+			</tr>
+			<tr>
+				<td><strong>Surname:</strong></td>
+				<td><%= @doctor.surname %></td>
+			</tr>
+			<tr>
+				<td><strong>DOB:</strong></td>
+				<td><%= @doctor.try(:birthday).try(:strftime, '%e %B %Y') %></td>
+			</tr>
+			<tr>
+				<td><strong>Clinic:</strong></td>
+				<td><%= @doctor.clinic %></td>
+			</tr>
+			<tr>
+				<td><strong>Email:</strong></td>
+				<td><%= @doctor.email %></td>
+			</tr>
+			<tr>
+				<td><strong>Phone Number:</strong></td>
+				<td><%= @doctor.phoneNumber %></td>
+			</tr>
+			<tr>
+				<td><strong>Address:</strong></td>
+				<td><%= @doctor.addressNumber %> <%= @doctor.address_street %></td>
+			</tr>
+			<tr>
+				<td><strong>City:</strong></td>
+				<td><%= @doctor.city %></td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-md-6">
+		
+	</div>
+</div>

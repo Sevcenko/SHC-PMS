@@ -1,0 +1,61 @@
+<h1>New Patient</h1>
+<%= form_for :patient, url: patients_path do |f| %>
+	<% if @patient.errors.any? %>
+		<% @patient.errors.full_messages.each do |msg| %>
+		<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+	<div class="col-md-6">
+		<p>
+			<%= f.label :name %><br>
+			<%= f.text_field(:name, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :surname %><br>
+			<%= f.text_field(:surname, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :email %><br>
+			<%= f.text_field(:email, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :birthday %><br>
+			<%= f.date_field(:birthday, {:class => 'form-control'}) %>
+		</p>
+		
+	</div>
+
+	<div class="col-md-6">
+		<p>
+			<%= f.label :addressNumber %><br>
+			<%= f.text_field(:addressNumber, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :address_street %><br>
+			<%= f.text_field(:address_street, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :city %><br>
+			<%= f.text_field(:city, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :phoneNumber %><br>
+			<%= f.text_field(:phoneNumber, {:class => 'form-control'}) %>
+		</p>
+
+		<p>
+			<%= f.label :clinic %><br>
+			<%= f.text_field(:clinic, {:class => 'form-control'}) %>
+		</p>
+	</div>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-primary'}) %>
+	</p>
+	<% end %>

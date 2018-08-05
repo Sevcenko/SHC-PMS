@@ -1,0 +1,17 @@
+<h3>Patient Appointment</h3>
+<% @patient.appointments.each do |appointment| %>
+	<div class="well">
+	
+		<p><strong>Created:</strong> <%= appointment.created_at.strftime("%d %b %Y %H:%M:%S") %></p>
+		<p><strong>Date:</strong> <%= appointment.date %></p>
+		<p><strong>Time:</strong> <%= appointment.hours %>:<%= appointment.minutes %></p>
+		<p><strong>Type:</strong> <%= appointment.appointmentType %></p>
+		<p><strong>Description:</strong> <%= appointment.description %></p>
+		<p><strong>Patient ID:</strong> <%= appointment.patient_id %></p>
+		<p><strong>Doctor ID:</strong> <%= appointment.doctor_id %></p>
+		<%= link_to [appointment.patient, appointment], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', title: "Delete" do%>
+
+			<i class="glyphicon glyphicon glyphicon-trash"></i>
+		<% end %>
+	</div>
+<% end %>

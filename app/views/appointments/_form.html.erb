@@ -1,0 +1,32 @@
+<h3>Add Appointment</h3>
+<%= form_for([@patient, @patient.appointments.build]) do |f| %>
+	<p>
+		<%= f.label :date %><br>
+		<%= f.date_field(:date, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :hours %><br>
+		<%= f.select(:hours, '08'..'17', {}, { :class => 'form-control' }) %>
+	</p>
+
+	<p>
+		<%= f.label :minutes %><br>
+		<%= f.select(:minutes, ['00', '10', '20', '30', '40', '50'], {}, { :class => 'form-control' }) %>
+		<%#= f.select :minutes, [ ["00",00], ["10",10], ["20", 20], ["30",30], ["40", 40], ["50", 50] ] %>
+	</p>
+
+	<p>
+		<%= f.label :appointmentType %><br>
+		<%= f.text_field(:appointmentType, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :description %><br>
+		<%= f.text_area(:description, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-default'}) %>
+	</p>
+<% end %>
