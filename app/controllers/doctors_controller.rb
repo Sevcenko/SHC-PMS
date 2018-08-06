@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-	before_action :must_login
+	#before_action :must_login
 	def index	
 		#@doctor = Doctor.find(params[:id])
 
