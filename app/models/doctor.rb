@@ -1,6 +1,6 @@
 class Doctor < ApplicationRecord
 	#cia reikes paziureti kaip pagrazinti sita
-	#has_secure_password
+	has_secure_password 
 	has_many :patients
 	#has_many :appointments
 

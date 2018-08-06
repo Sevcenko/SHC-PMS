@@ -24,8 +24,9 @@ gem 'ransack'
 
 #gem install bcrypt-ruby 
 #gem 'bcrypt', '3.1.11'
+#gem 'bcrypt-ruby'
 
-#gem 'bcrypt', '~> 3.1.11'
+gem 'bcrypt', '~> 3.1.11'
 
 gem "simple_calendar", "~> 2.0"
 
