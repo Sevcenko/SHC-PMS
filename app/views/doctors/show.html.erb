@@ -8,11 +8,11 @@
 		<table class="table table-borderless">
 			<tr>
 				<td><strong>Name:</strong></td>
-				<td><%= @doctor.name %></td>
+				<td><%= @doctor.name.humanize %></td>
 			</tr>
 			<tr>
 				<td><strong>Surname:</strong></td>
-				<td><%= @doctor.surname %></td>
+				<td><%= @doctor.surname.humanize %></td>
 			</tr>
 			<tr>
 				<td><strong>DOB:</strong></td>
@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td><strong>Clinic:</strong></td>
-				<td><%= @doctor.clinic %></td>
+				<td><%= @doctor.clinic.humanize %></td>
 			</tr>
 			<tr>
 				<td><strong>Email:</strong></td>
@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<td><strong>City:</strong></td>
-				<td><%= @doctor.city %></td>
+				<td><%= @doctor.city.humanize %></td>
 			</tr>
 		</table>
 	</div>

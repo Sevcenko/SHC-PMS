@@ -1,8 +1,6 @@
 class DoctorsController < ApplicationController
 	before_action :must_login
 	def index	
-		#@doctor = Doctor.find(params[:id])
-
 		@doctors = Doctor.all
 	end
 
@@ -15,11 +13,9 @@ class DoctorsController < ApplicationController
 	end
 
 	def create
-		#render plain: params[:post].inspect
 		@doctor = Doctor.new(doctor_params)
 	
 		if(@doctor.save)
-		#sitas kasko neveikia
 		 redirect_to @doctor
 		else 
 			render 'new'

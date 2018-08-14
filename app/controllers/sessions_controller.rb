@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 		if doctor && doctor.authenticate(params[:password])
 			session[:doctor_id] = doctor.id
 
-			flash[:success] = "Welcome to rails simple auth"
+			flash[:success] = "Welcome"
 
 			redirect_to home_path
 		else

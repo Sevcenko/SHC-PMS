@@ -1,23 +1,19 @@
-<div class="row">
-	<div class="col-md-8">
+<div class="container">
+	<div class="col-md-4">
 		<h1>Appointments</h1>
 	</div>
-</div>
-<div class="row">
-		<%= search_form_for @search, url: search_appointments_path, html: {class: "form-inline col-md-8 col-md-offset-2", method: :post} do|f| %>
+	<div class="col-md-8 search_appointment">
+		<%= search_form_for @search, url: search_appointments_path, html: {class: "form-inline col-md-10 col-md-offset-2", method: :post} do|f| %>
 			<div class="input-daterange">
 				<div class="col-md-4">
-					<%= f.text_field :date_eq, class: "form-control input-sm picker-input", id: 'datetimepicker', placeholder: "Date" %>
-					<!-- sita reikes ideti veliau kaip isiaiskinsiu kaip padaryti normaliai kalendoriu
-					:required => true
-				-->
+					<%= f.text_field :date_eq, class: "form-control input-sm picker-input", id: 'datetimepicker', placeholder: "Date", autocomplete: "off", :required => true %>
 				</div>
 			</div>
 			<div class="col-md-2 form-actions">
 				<%= f.submit "Search", class: "btn btn-success" %>
 			</div>
 		<% end %>
-		
+	</div>
 </div>
 <div class="well">
 	<table class="table">
@@ -27,10 +23,6 @@
 		    	<th scope="col">Date</th>
 		    	<th scope="col">Name</th>
 		    	<th scope="col">Surname</th>
-		    	<!--
-		      	<th scope="col">Appontment Type</th>
-		      	<th scope="col">Description</th>
-		      -->
 		      	<th scope="col">Delete</th>
 		    </tr>
 		</thead>
@@ -43,7 +35,6 @@
 			    	<td><%= appointment.patient.name.humanize %></td>
 			    	<td><%= appointment.patient.surname.humanize %></td>
 			    	<td>
-			    		<!--  cia reikes padaryti kad rodytu kita path -->
 			    		<%= link_to [appointment.patient, appointment], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', title: "Delete" do%>
 							<i class="glyphicon glyphicon glyphicon-trash"></i>
 						<% end %>

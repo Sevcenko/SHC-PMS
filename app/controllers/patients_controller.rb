@@ -5,9 +5,6 @@ class PatientsController < ApplicationController
 			@patients = Patient.search(params[:search]).order("name")
 		else	
 			@patients = Patient.all
-			#@doctor = Doctor.find(params[:doctor_id])
-			#@patient = @patient.doctor.create(patient_params)
-			#redirect_to patient_path(@doctor)
 		end
 	end
 
